@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Capitales</title>
+	
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="scripts/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="scripts/scripts.js"></script>
+    
+    <link rel="stylesheet" media="all" href="styles/jquery-jvectormap.css"/>
+    <link rel="stylesheet" media="all" href="styles/jquery-ui.css"/>
+	<link href="styles/app.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <div id="map1"><div class="jvectormap-defaultzoom" id="focus-init">↕</div></div>
+    <form>
+        <div >
+            <SELECT NAME="Pays" id="paysId" onChange='Choix(this.form)'>
+                <OPTION>Choix pays</OPTION> 
+                <option value="AF">Afghanistan</option>
+                <option value="ZA">Afrique du Sud</option>
+                <option value="AL">Albanie</option>
+                <option value="DZ">Algérie</option>
+                <option value="DE">Allemagne</option>
+                <option>Andorre</option>
+                <option>Angleterre</option>
+                <option value="AO">Angola</option>
+                <option value="SA">Arabie Saoudite</option>
+                <option value="AR">Argentine</option>
+                <option value="AM">Arménie</option>
+                <option>Antigua-et-Barbuda</option>
+                <option value="AU">Australie</option>
+                <option value="AT">Autriche</option>
+                <option value="AZ">Azerbaïdjan</option>
+                <option value="BS">Bahamas</option>
+                <option>Bahreïn</option>
+                <option value="BD">Bangladesh</option>
+                <option>Barbade</option>
+                <option value="BE">Belgique</option>
+                <option value="BZ">Belize</option>
+                <option value="BJ">Bénin</option>
+                <option value="BT">Bhoutan</option>
+                <option value="BY">Biélorussie</option>
+                <option value="MM">Birmanie</option>
+                <option value="BO">Bolivie</option>
+                <option value="BA">Bosnie-Herzégovine</option>
+                <option>Botswana</option>
+                <option value="BR">Brésil</option>
+                <option value="BN">Brunei</option>
+                <option value="BG">Bulgarie</option>
+                <option value="BF">Burkina Faso</option>
+                <option value="BI">Burundi</option>
+                <option value="KH">Cambodge</option>
+                <option value="CM">Cameroun</option>
+                <option value="CA">Canada</option>
+                <option>Cap-Vert</option>
+                <option value="CL">Chili</option>
+                <option value="CN">Chine</option>
+                <option value="CY">Chypre</option>
+                <option value="CO">Colombie</option>
+                <option>Comores</option>
+                <option value="CG">République du Congo</option>
+                <option value="KP">Corée du Nord</option>
+                <option value="KR">Corée du Sud</option>
+                <option value="CR">Costa Rica</option>
+                <option value="CI">Côte d'Ivoire</option>
+                <option value="HR">Croatie</option>
+                <option value="CU">Cuba</option>
+                <option value="DK">Danemark</option>
+                <option value="DJ">Djibouti</option>
+                <option>Dominique</option>
+                <option>Ecosse</option>
+                <option value="EG">Egypte</option>
+                <option value="AE">Emirats Arabes Unis</option>
+                <option>Equateur</option>
+                <option value="ER">Erythrée</option>
+                <option value="ES">Espagne</option>
+                <option value="EE">Estonie</option>
+                <option value="US">Etats-Unis</option>
+                <option value="ET">Ethiopie</option>
+                <option>Fidji</option>
+                <option value="FI">Finlande</option>
+                <option value="FR">France</option>
+                <option value="GA">Gabon</option>
+                <option value="GM">Gambie</option>
+                <option value="GE">Géorgie</option>
+                <option value="GH">Ghana</option>
+                <option value="GR">Grèce</option>
+                <option>Grenade</option>
+                <option value="GT">Guatemala</option>
+                <option value="GN">Guinée</option>
+                <option value="GQ">Guinée équatoriale</option>
+                <option value="GW">Guinée-Bissau</option>
+                <option value="GY">Guyana</option>
+                <option value="HT">Haïti</option>
+                <option value="HN">Honduras</option>
+                <option value="HU">Hongrie</option>
+                <option>Ile Maurice</option>
+                <option value="IN">Inde</option>
+                <option value="ID">Indonésie</option>
+                <option value="IQ">Irak</option>
+                <option value="IR">Iran</option>
+                <option value="IE">Irlande</option>
+                <option>Irlande du Nord</option>
+                <option value="IS">Islande</option>
+                <option value="IL">Israël</option>
+                <option value="IT">Italie</option>
+                <option value="JM">Jamaïque</option>
+                <option value="JP">Japon</option>
+                <option value="JO">Jordanie</option>
+                <option value="KZ">Kazakhstan</option>
+                <option value="KE">Kenya</option>
+                <option value="KG">Kirghizistan</option>
+                <option>Kiribati</option>
+                <option value="_1">Kosovo</option>
+                <option>Koweït</option>
+                <option>Laos</option>
+                <option value="LS">Lesotho</option>
+                <option value="LV">Lettonie</option>
+                <option value="LB">Liban</option>
+                <option value="LR">Liberia</option>
+                <option value="LY">Libye</option>
+                <option>Liechtenstein</option>
+                <option>Lituanie</option>
+                <option value="LU">Luxembourg</option>
+                <option value="MK">Macédoine</option>
+                <option value="MG">Madagascar</option>
+                <option>Malaisie</option>
+                <option value="MW">Malawi</option>
+                <option>Maldives</option>
+                <option value="ML">Mali</option>
+                <option>Malte</option>
+                <option value="MA">Maroc</option>
+                <option>Iles Marshall</option>
+                <option value="MR">Mauritanie</option>
+                <option value="MX">Mexique</option>
+                <option>Micronésie</option>
+                <option value="MD">Moldavie</option>
+                <option>Monaco</option>
+                <option value="MN">Mongolie</option>
+                <option value="ME">Monténégro</option>
+                <option value="MZ">Mozambique</option>
+                <option value="NA">Namibie</option>
+                <option>Nauru</option>
+                <option value="NP">Népal</option>
+                <option value="NI">Nicaragua</option>
+                <option value="NE">Niger</option>
+                <option value="NG">Nigeria</option>
+                <option value="NO">Norvège</option>
+                <option value="NZ">Nouvelle-Zélande</option>
+                <option value="OM">Oman</option>
+                <option>Ouganda</option>
+                <option value="UZ">Ouzbékistan</option>
+                <option>Pakistan</option>
+                <option>Palaos</option>
+                <option value="PA">Panama</option>
+                <option value="PG">Papouasie-Nouvelle-Guinée</option>
+                <option value="PY">Paraguay</option>
+                <option>Pays de Galles</option>
+                <option value="NL">Pays-Bas</option>
+                <option value="PE">Pérou</option>
+                <option value="PH">Philippines</option>
+                <option value="PL">Pologne</option>
+                <option value="PT">Portugal</option>
+                <option value="QA">Qatar</option>
+                <option value="CF">République Centrafricaine</option>
+                <option value="CD">République Démocratique du Congo</option>
+                <option value="DO">République Dominicaine</option>
+                <option value="CZ">République Tchèque</option>
+                <option value="RO">Roumanie</option>
+                <option value="RU">Russie</option>
+                <option value="RW">Rwanda</option>
+                <option>Sainte-Lucie</option>
+                <option>Saint-Kitts-et-Nevis</option>
+                <option>Saint-Marin</option>
+                <option>Saint-Vincent-et-les-Grenadines</option>
+                <option>Iles Salomon</option>
+                <option value="SV">Salvador</option>
+                <option>Samoa</option>
+                <option>São Tomé et Principe</option>
+                <option value="SN">Sénégal</option>
+                <option value="RS">Serbie</option>
+                <option>Seychelles</option>
+                <option value="SL">Sierra Leone</option>
+                <option>Singapour</option>
+                <option value="SK">Slovaquie</option>
+                <option value="SI">Slovénie</option>
+                <option value="SO">Somalie</option>
+                <option value="SD">Soudan</option>
+                <option value="LK">Sri Lanka</option>
+                <option value="SE">Suède</option>
+                <option value="CH">Suisse</option>
+                <option value="SR">Suriname</option>
+                <option value="SZ">Swaziland</option>
+                <option value="SY">Syrie</option>
+                <option value="TJ">Tadjikistan</option>
+                <option value="TW">Taïwan</option>
+                <option value="TZ">Tanzanie</option>
+                <option>Tchad</option>
+                <option value="TH">Thaïlande</option>
+                <option value="TL">Timor Oriental</option>
+                <option value="TG">Togo</option>
+                <option>Tonga</option>
+                <option value="TT">Trinité-et-Tobago</option>
+                <option value="TN">Tunisie</option>
+                <option value="TM">Turkménistan</option>
+                <option value="TR">Turquie</option>
+                <option>Tuvalu</option>
+                <option value="UA">Ukraine</option>
+                <option value="UY">Uruguay</option>
+                <option value="VU">Vanuatu</option>
+                <option>Vatican</option>
+                <option value="VE">Venezuela</option>
+                <option value="VN">Viêt Nam</option>
+                <option value="YE">Yémen</option>
+                <option value="ZM">Zambie</option>
+                <option value="ZW">Zimbabwe</option>
+            </SELECT>
+            <SELECT NAME="Capitale" id="capitaleId" onChange='ChoixCapitale(this.form)'> 
+                <OPTION>Capitale</OPTION>
+                <option>Abu Dhabi</option>
+                <option>Abuja</option>
+                <option>Accra</option>
+                <option>Achgabat</option>
+                <option>Addis-Abeba</option>
+                <option>Alger</option>
+                <option>Amman</option>
+                <option>Amsterdam</option>
+                <option>Andorre-la-Vieille</option>
+                <option>Ankara</option>
+                <option>Antananarivo</option>
+                <option>Apia</option>
+                <option>Asmara</option>
+                <option>Astana</option>
+                <option>Asuncion</option>
+                <option>Athènes</option>
+                <option>Bagdad</option>
+                <option>Bakou</option>
+                <option>Bamako</option>
+                <option>Bandar Seri Begawan</option>
+                <option>Bangkok</option>
+                <option>Bangui</option>
+                <option>Banjul</option>
+                <option>Basseterre</option>
+                <option>Belfast</option>
+                <option>Belgrade</option>
+                <option>Belmopan</option>
+                <option>Berlin</option>
+                <option>Berne</option>
+                <option>Beyrouth</option>
+                <option>Bichkek</option>
+                <option>Bissau</option>
+                <option>Bogota</option>
+                <option>Brasilia</option>
+                <option>Bratislava</option>
+                <option>Brazzaville</option>
+                <option>Bridgetown</option>
+                <option>Bruxelles</option>
+                <option>Bucarest</option>
+                <option>Budapest</option>
+                <option>Buenos Aires</option>
+                <option>Bujumbura</option>
+                <option>Canberra</option>
+                <option>Caracas</option>
+                <option>Cardiff</option>
+                <option>Castries</option>
+                <option>Chisinau</option>
+                <option>Conakry</option>
+                <option>Copenhague</option>
+                <option>Dacca</option>
+                <option>Dakar</option>
+                <option>Damas</option>
+                <option>Dili</option>
+                <option>Djibouti</option>
+                <option>Dodoma</option>
+                <option>Doha</option>
+                <option>Douchanbe</option>
+                <option>Dublin</option>
+                <option>Edimbourg</option>
+                <option>Erevan</option>
+                <option>Europe</option>
+                <option>Fanafuti</option>
+                <option>Freetown</option>
+                <option>Gaborone</option>
+                <option>Georgetown</option>
+                <option>Guatemala</option>
+                <option>Hanoi</option>
+                <option>Harare</option>
+                <option>Helsinki</option>
+                <option>Honiara</option>
+                <option>Islamabad</option>
+                <option>Jakarta</option>
+                <option>Jérusalem</option>
+                <option>Kaboul</option>
+                <option>Kampala</option>
+                <option>Katmandou</option>
+                <option>Khartoum</option>
+                <option>Kiev</option>
+                <option>Kigali</option>
+                <option>Kingston</option>
+                <option>Kingstown</option>
+                <option>Kinshasa</option>
+                <option>Koweït</option>
+                <option>Kuala Lumpur</option>
+                <option>La Havane</option>
+                <option>La Valette</option>
+                <option>Le Caire</option>
+                <option>Libreville</option>
+                <option>Lilongwe</option>
+                <option>Lima</option>
+                <option>Lisbonne</option>
+                <option>Ljubljana</option>
+                <option>Lomé</option>
+                <option>Londres</option>
+                <option>Luanda</option>
+                <option>Lusaka</option>
+                <option>Luxembourg</option>
+                <option>Madrid</option>
+                <option>Majuro</option>
+                <option>Malabo</option>
+                <option>Malé</option>
+                <option>Managua</option>
+                <option>Manama</option>
+                <option>Manille</option>
+                <option>Maputo</option>
+                <option>Mascate</option>
+                <option>Maseru</option>
+                <option>Mbabane</option>
+                <option>Melekeok</option>
+                <option>Mexico</option>
+                <option>Minsk</option>
+                <option>Mogadiscio</option>
+                <option>Monaco</option>
+                <option>Monrovia</option>
+                <option>Montevideo</option>
+                <option>Moroni</option>
+                <option>Moscou</option>
+                <option>N'Djamena</option>
+                <option>Nairobi</option>
+                <option>Nassau</option>
+                <option>New Delhi</option>
+                <option>Niamey</option>
+                <option>Nicosie</option>
+                <option>Nouakchott</option>
+                <option>Nukualofa</option>
+                <option>Oslo</option>
+                <option>Ottawa</option>
+                <option>Ouagadougou</option>
+                <option>Oulan-Bator</option>
+                <option>Palikir</option>
+                <option>Panama</option>
+                <option>Paramaribo</option>
+                <option>Paris</option>
+                <option>Pékin</option>
+                <option>Phnom Penh</option>
+                <option>Podgorica</option>
+                <option>Port Louis</option>
+                <option>Port Moresby</option>
+                <option>Port of Spain</option>
+                <option>Port-au-Prince</option>
+                <option>Port-Vila</option>
+                <option>Porto-Novo</option>
+                <option>Prague</option>
+                <option>Praia</option>
+                <option>Pretoria</option>
+                <option>Pristina</option>
+                <option>Pyongyang</option>
+                <option>Quito</option>
+                <option>Rabat</option>
+                <option>Rangoun</option>
+                <option>Reykjavik</option>
+                <option>Riga</option>
+                <option>Riyad</option>
+                <option>Rome</option>
+                <option>Roseau</option>
+                <option>Saint George's</option>
+                <option>Saint John's</option>
+                <option>Saint-Domingue</option>
+                <option>Saint-Marin</option>
+                <option>San José</option>
+                <option>San Salvador</option>
+                <option>Sanaa</option>
+                <option>Santiago</option>
+                <option>São Tomé</option>
+                <option>Sarajevo</option>
+                <option>Séoul</option>
+                <option>Singapour</option>
+                <option>Skopje</option>
+                <option>Sofia</option>
+                <option>Sri Jayawardenapura</option>
+                <option>Stockholm</option>
+                <option>Sucre</option>
+                <option>Suva</option>
+                <option>Tachkent</option>
+                <option>Taipei</option>
+                <option>Tallinn</option>
+                <option>Tarawa</option>
+                <option>Tbilissi</option>
+                <option>Tegucigalpa</option>
+                <option>Téhéran</option>
+                <option>Thimbu</option>
+                <option>Tirana</option>
+                <option>Tokyo</option>
+                <option>Tripoli</option>
+                <option>Tunis</option>
+                <option>Vaduz</option>
+                <option>Varsovie</option>
+                <option>Vatican</option>
+                <option>Victoria</option>
+                <option>Vientiane</option>
+                <option>Vilnius</option>
+                <option>Washington</option>
+                <option>Wellington</option>
+                <option>Windhoek</option>
+                <option>Yamoussoukro</option>
+                <option>Yaoundé</option>
+                <option>Yaren</option>
+                <option>Zagreb</option>
+                <option></option>
+            </SELECT>
+        </div>
+    </form>
+    <div id="blocDrapeau">
+        <figure tabindex="0">
+            <img id="flag" src="">
+        </figure>
+    </div>
+</body>
+</html>
