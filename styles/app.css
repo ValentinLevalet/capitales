@@ -60,14 +60,14 @@ option:first-child{
     box-shadow: 0px 0px 10px;
 }
 .jvectormap-tip:after  {
-    background-color: #FFF;
     position: absolute;
     content: "";
-    height: 20px;
-    width: 20px;
-    transform: rotate(45deg);
-    top: 15px;
-    left: 30%;
+    height: 0;
+    width: 0;
+    border: solid 10px;
+    border-color: #FFF #FFF transparent transparent;
+    top: 25px;
+    right: 0;
 }
 
 @media all and (orientation:landscape) {

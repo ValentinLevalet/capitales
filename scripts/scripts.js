@@ -447,7 +447,7 @@ jQuery(function(){
             $('#map1').vectorMap('set', 'focus', {region: code, animate: true});
             mapObj.clearSelectedRegions();
             mapObj.setSelectedRegions([code]);
-            onRegionSelected(function(){console.log("prout");}) 
+            //onRegionSelected(function(){console.log("prout");}) 
         }
         focusRegion(this.value);
 
@@ -523,7 +523,8 @@ jQuery(function(){
           }
         },
         onRegionClick: function(e, code){
-            $('#map1').vectorMap('set', 'focus', {region: code, animate: true});
+            //$('#map1').vectorMap('set', 'focus', {region: code, animate: true});
+            //$('#map1').vectorMap('set', {region: code, animate: true});
         }
     });
 
